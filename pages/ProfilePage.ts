@@ -7,8 +7,7 @@ export class ProfilePage {
     private goToBookStoreButton: Locator;
 
     constructor(private page: Page) {
-        // Verified in the live DOM: a "User Name :" label followed by a node
-        // that contains the username, next to the "Logout" button.
+    
         this.usernameLabel = page.getByText('User Name :', { exact: true });
 
         this.logoutButton = page.getByRole('button', { name: 'Logout' });

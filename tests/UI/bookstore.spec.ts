@@ -9,16 +9,7 @@ import { username, password } from '../../utils/env';
 const BOOK_TITLE = 'Learning JavaScript Design Patterns';
 const OUTPUT_FILE = path.resolve(__dirname, '../../output/book-details.txt');
 
-/*
- * Given the user has a valid DemoQA account
- * When the user opens the Book Store Application and logs in
- * Then the username and the Logout button should be displayed
- * When the user opens the Book Store and searches for "Learning JavaScript Design Patterns"
- * Then the book should be listed in the results
- * And its Title, Author and Publisher should be saved to output/book-details.txt
- * When the user logs out
- * Then the user should be returned to the login page
- */
+
 test('User can search a book, save its details and logout', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const profilePage = new ProfilePage(page);

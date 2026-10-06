@@ -2,17 +2,9 @@ import { test, expect } from '@playwright/test';
 
 test.use({ baseURL: 'https://reqres.in' });
 
-// The tests share the created user's id, so they must run in order.
 test.describe.configure({ mode: 'serial' });
 
-/*
- * Observed behaviour of the live ReqRes API (verified before writing these tests):
- *  - POST /api/users          -> 201, echoes name/job and returns id + createdAt
- *  - GET  /api/users/{newId}  -> 404 {}   (created users are NOT persisted; read-only demo API)
- *  - PUT  /api/users/{newId}  -> 200, echoes the new name + updatedAt
- * Because of this, the GET step documents the real 404 for the created id and
- * validates the "get user details" contract against a seeded user instead.
- */
+
 test.describe('ReqRes users API', () => {
     const newUser = { name: 'Test User', job: 'QA Engineer' };
     let userId: string;
